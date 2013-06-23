@@ -30,12 +30,21 @@
         var dataGenerator = new DataGenerator();
 
         function ViewModel(){
-            var data = dataGenerator.generate(25);
+            var data = dataGenerator.generate(1000);
 
-            this.list = ko.observable(data);
-            this.total = ko.computed(function(){
-                return this.list().length;
+            this.start = ko.observable(0);
+            this.end = ko.observable(25);
+
+            this.list = ko.computed(function(){
+                var items = [];
+                for (var i = this.start(); i < this.end(); i++) {
+                    items.push(data[i]);
+                };
+
+                return items;
             }, this);
+
+            this.total = data.length;
         }
 
         var model = new ViewModel();
