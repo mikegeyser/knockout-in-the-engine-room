@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link href="../assets/css/site.css" rel="stylesheet">
+
+        <script type="text/javascript" src="../assets/script/knockout-2.2.1.js"></script>
+        <script type="text/javascript" src="../assets/script/ko-inspector.js"></script>
+    </head>
+    
+    <body>
+        <div class="header"></div>
+
+        <div data-bind="inspect: $root, pinToTop: 'right'"></div>
+    </body>
+
+    <script type="text/javascript">
+        function Name() {
+            this.name = ko.observable();
+
+            this.name.subscribe(function (newValue) {
+                this.name(newValue.toUpperCase());
+            }, this);
+
+            this.nameLength = ko.computed(function(){
+                return this.name() ? this.name().length : 0;
+            }, this);
+
+            this.shouldHighlight = ko.computed(function(){
+                return this.nameLength() > 3;
+            }, this);
+
+            this.highlight = ko.computed(function(){
+                return this.shouldHighlight() ? 'red' : 'black';
+            }, this);
+        }
+    </script>
+</html>
