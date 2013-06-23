@@ -1,14 +1,23 @@
 <html>
-	<head>
-		<link href="../assets/css/site.css" rel="stylesheet">
-		
-	</head>
-	
-	<body>
-		<div class="header"></div>
-	</body>
+    <head>
+        <link href="../assets/css/site.css" rel="stylesheet">
 
-	<script type="text/javascript">
+        <script type="text/javascript" src="../assets/script/knockout-2.2.1.js"></script>
+        <script type="text/javascript" src="../assets/script/ko-inspector.js"></script>
+    </head>
+    
+    <body>
+        <div class="header"></div>
 
-	</script>
+        <div data-bind="inspect: $root"></div>
+    </body>
+
+    <script type="text/javascript">
+        function Name() {
+            this.name = ko.observable();
+        }
+
+        var model = new Name();
+        ko.applyBindings(model);
+    </script>
 </html>
