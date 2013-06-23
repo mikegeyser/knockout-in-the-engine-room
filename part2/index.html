@@ -8,9 +8,10 @@
     
     <body>
         <div class="header"></div>
+        <div><span data-bind="text: completedNames"></span> names have been completed. </div>
         <button data-bind="click: addTen">Add 10</button>
         <br />
-        
+
         <!-- ko foreach:names -->
             <input type="text" data-bind="value: name, style: {color: highlight}" />
             <br />
@@ -42,6 +43,12 @@
 
         function ViewModel(){
             this.names = ko.observableArray();
+
+            this.completedNames = ko.computed(function(){
+                return ko.utils.arrayFilter(this.names(), function(item){
+                    return (item.nameLength() > 0);
+                }).length;
+            }, this);
 
             var self = this;
             this.addTen = function(){
