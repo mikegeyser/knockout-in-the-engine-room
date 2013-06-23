@@ -8,7 +8,7 @@
     
     <body>
         <div class="header"></div>
-        <input type="text" data-bind="value: name" />
+        <input type="text" data-bind="value: name, style: {color: highlight}" />
 
         <div data-bind="inspect: $root"></div>
     </body>
@@ -23,6 +23,14 @@
 
             this.nameLength = ko.computed(function(){
                 return this.name() ? this.name().length : 0;
+            }, this);
+
+            this.shouldHighlight = ko.computed(function(){
+                return this.nameLength() > 3;
+            }, this);
+
+            this.highlight = ko.computed(function(){
+                return this.shouldHighlight() ? 'red' : 'black';
             }, this);
         }
 
