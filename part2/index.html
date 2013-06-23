@@ -8,6 +8,8 @@
     
     <body>
         <div class="header"></div>
+        <button data-bind="click: addTen">Add 10</button>
+        <br />
         
         <!-- ko foreach:names -->
             <input type="text" data-bind="value: name, style: {color: highlight}" />
@@ -41,8 +43,11 @@
         function ViewModel(){
             this.names = ko.observableArray();
 
-            for (var i = 0 ; i < 10; i++) {
-                this.names.push(new Name());
+            var self = this;
+            this.addTen = function(){
+                for (var i = 0 ; i < 10; i++) {
+                    self.names.push(new Name());
+                };
             };
         }
 
