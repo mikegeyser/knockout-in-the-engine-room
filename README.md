@@ -1,6 +1,6 @@
 Knockout in the engine room
 ===========================
-by <a href="http://twitter.com/mikegeyser">@mikegeyser</a>
+by <a href="http://twitter.com/mikegeyser" target="_blank">@mikegeyser</a>
 
 KnockoutJS, like many javascript MVVM frameworks, comes across superficially as magical-unicorn-sprinkles that make single page applications a breeze - fast, sexy, slick UX. It follows the trend in many modern web frameworks to taunt you with low hanging fruit, hoping to ensnare you with ease of access and shiny features that can make you look good on the cheap. But anyone who has been burnt by long term consequences of the ten-minute-demo video, or the try-it-live demo website cultivates a measure of cynicism regarding what lies beneath. What makes it tick? What goes on in the engine room? 
 
