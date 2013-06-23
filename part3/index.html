@@ -10,7 +10,7 @@
     <body>
         <div class="header"></div>
         
-        <div class="library" data-bind="foreach: list">
+        <div class="library" data-bind="infiniteScroll: list">
             <div class="album">
                 <h2 data-bind="text: artist">&nbsp;</h5>
                 <h3 data-bind="text: album">&nbsp;</h6>
@@ -29,6 +29,17 @@
     <script type="text/javascript">
         var dataGenerator = new DataGenerator();
 
+        ko.bindingHandlers.infiniteScroll = {
+            init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+                ko.bindingHandlers.foreach.init(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext);
+
+                return { controlsDescendantBindings: true };
+            },
+            update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+                ko.bindingHandlers.foreach.update(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext);
+            }
+        };
+        
         function ViewModel(){
             var data = dataGenerator.generate(1000);
 
