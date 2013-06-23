@@ -2,6 +2,7 @@
     <head>
         <link href="../assets/css/site.css" rel="stylesheet">
         
+        <script type="text/javascript" src="../assets/script/jquery-1.10.1.min.js"></script>
         <script type="text/javascript" src="../assets/script/knockout-2.2.1.debug.js"></script>
         <script type="text/javascript" src="../assets/script/ko-inspector.js"></script>
         <script type="text/javascript" src="../assets/script/data-generator.js"></script>
@@ -33,6 +34,13 @@
             init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
                 ko.bindingHandlers.foreach.init(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext);
 
+                $(window).scroll(function () {
+                    // bottom
+                    if ($(window).scrollTop() + screen.height + 200 > $('body').height()) {
+                        viewModel.extendList();
+                    }
+                });
+
                 return { controlsDescendantBindings: true };
             },
             update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
@@ -56,6 +64,13 @@
             }, this);
 
             this.total = data.length;
+
+            var self = this;
+            this.extendList = function(){
+                if (self.end() <= self.total) {
+                    self.end(self.end() + 5);
+                }
+            };
         }
 
         var model = new ViewModel();
