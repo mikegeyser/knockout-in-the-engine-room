@@ -4,15 +4,41 @@
         
         <script type="text/javascript" src="../assets/script/knockout-2.2.1.debug.js"></script>
         <script type="text/javascript" src="../assets/script/ko-inspector.js"></script>
+        <script type="text/javascript" src="../assets/script/data-generator.js"></script>
     </head>
     
     <body>
         <div class="header"></div>
         
+        <div class="library" data-bind="foreach: list">
+            <div class="album">
+                <h2 data-bind="text: artist">&nbsp;</h5>
+                <h3 data-bind="text: album">&nbsp;</h6>
+                <ol data-bind="foreach: songs">
+                    <li>
+                        <span data-bind="text: title">&nbsp;</span>
+                        (<span data-bind="text: length">&nbsp;</span>)
+                    </li>
+                </ol>
+            </div>
+        </div>
+
         <div data-bind="inspect: $root, pinToTop: 'right'"></div>
     </body>
 
     <script type="text/javascript">
+        var dataGenerator = new DataGenerator();
 
+        function ViewModel(){
+            var data = dataGenerator.generate(25);
+
+            this.list = ko.observable(data);
+            this.total = ko.computed(function(){
+                return this.list().length;
+            }, this);
+        }
+
+        var model = new ViewModel();
+        ko.applyBindings(model);
     </script>
 </html>
