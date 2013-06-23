@@ -15,6 +15,10 @@
     <script type="text/javascript">
         function Name() {
             this.name = ko.observable();
+
+            this.name.subscribe(function (newValue) {
+                this.name(newValue.toUpperCase());
+            }, this);
         }
 
         var model = new Name();
