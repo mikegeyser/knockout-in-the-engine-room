@@ -20,6 +20,10 @@
             this.name.subscribe(function (newValue) {
                 this.name(newValue.toUpperCase());
             }, this);
+
+            this.nameLength = ko.computed(function(){
+                return this.name() ? this.name().length : 0;
+            }, this);
         }
 
         var model = new Name();
