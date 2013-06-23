@@ -8,6 +8,11 @@
     
     <body>
         <div class="header"></div>
+        
+        <!-- ko foreach:names -->
+            <input type="text" data-bind="value: name, style: {color: highlight}" />
+            <br />
+        <!-- /ko -->
 
         <div data-bind="inspect: $root, pinToTop: 'right'"></div>
     </body>
@@ -32,5 +37,16 @@
                 return this.shouldHighlight() ? 'red' : 'black';
             }, this);
         }
+
+        function ViewModel(){
+            this.names = ko.observableArray();
+
+            for (var i = 0 ; i < 10; i++) {
+                this.names.push(new Name());
+            };
+        }
+
+        var model = new ViewModel();
+        ko.applyBindings(model);
     </script>
 </html>
