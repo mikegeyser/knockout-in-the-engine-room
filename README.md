@@ -10,7 +10,7 @@ This talk will dig through the core tenets of knockout, taking a look at the raw
 
 ## Work through the examples: ##
 
-The master branch contains the final version of everything, but please feel free to follow through the commit history (if that's your thing) or move between the branches as follows:
+The master branch contains the final version of everything (<a href="https://github.com/mikegeyser/knockout-in-the-engine-room/blob/master/knockout-in-the-engine-room.pdf">including my presentation</a>, for what that's worth), but please feel free to follow through the commit history (if that's your thing) or move between the branches as follows:
 
 ### Part 1: Subscriptions basics ###
 - <a href="https://github.com/mikegeyser/knockout-in-the-engine-room/tree/1-1">Step 1: Beginning</a>
@@ -33,3 +33,14 @@ The master branch contains the final version of everything, but please feel free
 - <a href="https://github.com/mikegeyser/knockout-in-the-engine-room/tree/3-3">Step 3: Computed result set</a>
 - <a href="https://github.com/mikegeyser/knockout-in-the-engine-room/tree/3-4">Step 4: Custom binding handler</a>
 - <a href="https://github.com/mikegeyser/knockout-in-the-engine-room/tree/3-5">Step 5: Infinite scroll</a>
+
+### References: ###
+- <a href="http://knockoutjs.com/documentation/introduction.html" target="_blank">KnockoutJS Documentation</a>
+- <a href="http://www.knockmeout.net/" target="_blank">knockmeout.net</a>
+- <a href="https://github.com/mat-mcloughlin/knockout-inspector" target="_blank">knockout-inspector</a>
+
+If you have any questions, please give me a shout: <a href="http://twitter.com/mikegeyser" target="_blank">@mikegeyser</a>.
+
+Otherwise, the fine gentlemen of the <a href="https://jabbr.net/#/rooms/knockoutjs" target="_blank">#knockoutjs room on Jabbr</a> are always helpful and seem to never sleep.
+
+
